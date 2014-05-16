@@ -1,0 +1,31 @@
+# apply from:"https://raw.github.com/jenkinsci/gradle-jpi-plugin/master/install"
+# Pasted directly below to allow offline builds
+
+buildscript {
+    repositories {
+        maven {
+            name "jenkins"
+            delegate.url("http://repo.jenkins-ci.org/releases/")
+        }
+        // The plugin is currently only available via the Jenkins
+        // Maven repository, but has dependencies in Maven Central.
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.5.0'
+    }
+}
+apply plugin: 'jpi'
+
+# end of https://raw.github.com/jenkinsci/gradle-jpi-plugin/master/install
+
+groupId = "org.jenkins-ci.plugins"
+version = "0.0.1-SNAPSHOT"
+description = "Shows mutation analysys stats for pitest-enabled projects"
+
+jenkinsPlugin {
+    coreVersion = '1.420'
+    displayName = 'Pitest Plugin'
+    url = 'http://pitest.org'
+    gitHubUrl = 'http://github.com/gvsmirnov/jenkins-pitest-plugin'
+}
