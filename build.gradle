@@ -1,6 +1,3 @@
-# apply from:"https://raw.github.com/jenkinsci/gradle-jpi-plugin/master/install"
-# Pasted directly below to allow offline builds
-
 buildscript {
     repositories {
         maven {
@@ -17,14 +14,12 @@ buildscript {
 }
 apply plugin: 'jpi'
 
-# end of https://raw.github.com/jenkinsci/gradle-jpi-plugin/master/install
-
 groupId = "org.jenkins-ci.plugins"
 version = "0.0.1-SNAPSHOT"
 description = "Shows mutation analysys stats for pitest-enabled projects"
 
 jenkinsPlugin {
-    coreVersion = '1.420'
+    coreVersion = '1.563'
     displayName = 'Pitest Plugin'
     url = 'http://pitest.org'
     gitHubUrl = 'http://github.com/gvsmirnov/jenkins-pitest-plugin'
