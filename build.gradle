@@ -1,26 +1,29 @@
 buildscript {
     repositories {
-        maven {
-            name "jenkins"
-            delegate.url("http://repo.jenkins-ci.org/releases/")
-        }
-        // The plugin is currently only available via the Jenkins
-        // Maven repository, but has dependencies in Maven Central.
-        mavenCentral()
+        jcenter()
     }
     dependencies {
         classpath 'org.jenkins-ci.tools:gradle-jpi-plugin:0.5.0'
     }
 }
+
 apply plugin: 'jpi'
 
-groupId = "org.jenkins-ci.plugins"
-version = "0.0.1-SNAPSHOT"
-description = "Shows mutation analysys stats for pitest-enabled projects"
+repositories {
+    jcenter()
+}
+
+group = 'org.jenkins-ci.plugins'
+version = '0.0.1-SNAPSHOT'
+description = 'Pitest Plugin'
 
 jenkinsPlugin {
-    coreVersion = '1.563'
+    coreVersion = '1.462'
     displayName = 'Pitest Plugin'
     url = 'http://pitest.org'
     gitHubUrl = 'http://github.com/gvsmirnov/jenkins-pitest-plugin'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.1'
 }

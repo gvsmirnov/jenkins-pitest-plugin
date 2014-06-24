@@ -1,3 +1,7 @@
 .gradle
 build/
 work
+*.ipr
+*.iws
+*.iml
+gradle
